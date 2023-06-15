@@ -12,8 +12,8 @@ using Users.Models;
 namespace Users.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230615174741_Initial")]
-    partial class Initial
+    [Migration("20230615182005_AddLoggedStatus")]
+    partial class AddLoggedStatus
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,13 +34,16 @@ namespace Users.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("Birthday")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("Gender")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("IsLoged")
+                        .HasColumnType("boolean");
 
                     b.Property<string>("MiddleName")
                         .IsRequired()

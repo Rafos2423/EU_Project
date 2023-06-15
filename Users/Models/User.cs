@@ -19,6 +19,7 @@ namespace Users.Models
         public Gender Gender { get; set; }
 
         public DateTime CreatedAt { get; set; }
+        public bool IsLoged { get; set; }
     }
 
     public enum Gender { Male, Female }
