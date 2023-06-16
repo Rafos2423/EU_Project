@@ -33,7 +33,7 @@ namespace Users.Controllers
             if (user.Password != model.Password) return NotFound("Wrong password");
 
             user.IsLoged = true;
-
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
