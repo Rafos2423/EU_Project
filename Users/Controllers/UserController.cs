@@ -45,6 +45,7 @@ namespace Users.Controllers
             if (user == null) return NotFound();
             user.IsLoged = false;
 
+            await _context.SaveChangesAsync();
             return Ok();
         }
 
